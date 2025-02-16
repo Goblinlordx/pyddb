@@ -28,8 +28,6 @@ class CommitableReversableContext(ABC):
                 current.up()
                 self._committed_ops.append(self._commitable_ops.pop(0))
         except Exception as err:
-            print(self._commitable_ops)
-            print(self._committed_ops)
             self.rollback()
             raise RollbackException(f"commit rolled back\nop: {current}") from err
 

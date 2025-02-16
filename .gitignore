@@ -12,6 +12,8 @@ wheels/
 # Virtual environments
 .venv
 
+.vscode/
+
 # terraform lock
 infra/.terraform.lock.hcl
 infra/terraform.tfstate

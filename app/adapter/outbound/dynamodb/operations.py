@@ -56,10 +56,12 @@ class DynamoDBUserCreateOp(DynamoDBOp):
             {
                 "Delete": {
                     "TableName": "test-tx-st",
-                    "Key": {
-                        "PK": {"S": f"USER#{self._user.id}"},
-                        "SK": {"S": f"USER#{self._user.id}"},
-                    },
+                    "Key": python_to_dynamo(
+                        {
+                            "PK": f"USER#{self._user.id}",
+                            "SK": f"USER#{self._user.id}",
+                        }
+                    ),
                 }
             }
         ]
