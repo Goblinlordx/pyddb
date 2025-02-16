@@ -227,6 +227,7 @@ dependencies = [
     { name = "boto3" },
     { name = "boto3-stubs", extra = ["dynamodb"] },
     { name = "pydantic" },
+    { name = "ulid" },
 ]
 
 [package.dev-dependencies]
@@ -243,6 +244,7 @@ requires-dist = [
     { name = "boto3", extras = ["dynamodb"], specifier = ">=1.36.21" },
     { name = "boto3-stubs", extras = ["dynamodb"], specifier = ">=1.36.21" },
     { name = "pydantic", specifier = ">=2.10.6" },
+    { name = "ulid", specifier = ">=1.1" },
 ]
 
 [package.metadata.requires-dev]
@@ -352,6 +354,12 @@ sdist = { url = "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec3
 wheels = [
     { url = "https://files.pythonhosted.org/packages/26/9f/ad63fc0248c5379346306f8668cda6e2e2e9c95e01216d2b8ffd9ff037d0/typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d", size = 37438 },
 ]
+
+[[package]]
+name = "ulid"
+version = "1.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/56/d4/6829692e4902d53684b7696cf3d5158f07439ebc4bc3ca7822b5ca173e44/ulid-1.1.tar.gz", hash = "sha256:0943e8a751ec10dfcdb4df2758f96dffbbfbc055d0b49288caf2f92125900d49", size = 1174 }
 
 [[package]]
 name = "urllib3"

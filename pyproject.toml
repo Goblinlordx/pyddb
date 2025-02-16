@@ -10,6 +10,7 @@ dependencies = [
     "boto3-stubs[dynamodb]>=1.36.21",
     "boto3[dynamodb]>=1.36.21",
     "pydantic>=2.10.6",
+    "ulid>=1.1",
 ]
 
 [dependency-groups]

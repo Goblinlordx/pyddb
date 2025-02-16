@@ -1,15 +1,18 @@
-from adapter.outbound.dynamodb.operations import DynamoDBOp, DynamoDBTransactOps
+from adapter.outbound.dynamodb.operations import DynamoDBOp
+from adapter.outbound.dynamodb.transaction import DynamoDBTransactOps
 from boto3 import client
 from domain.external.transactional import (
     CommitableReversableContext,
 )
 from mypy_boto3_dynamodb import DynamoDBClient
 
-ddb_client: DynamoDBClient = client("dynamodb")
+dynamo_client = client("dynamodb")
 
 
 class DynamoDBContext(CommitableReversableContext):
-    def __init__(self):
+    def __init__(self, client: DynamoDBClient, table_name: str):
+        self.client = client
+        self.table_name = table_name
         self._transact_ops: list[DynamoDBOp] = []
         super().__init__()
 
@@ -18,6 +21,6 @@ class DynamoDBContext(CommitableReversableContext):
 
     def commit(self):
         self._commitable_ops.append(
-            DynamoDBTransactOps(client=ddb_client, ops=self._transact_ops)
+            DynamoDBTransactOps(client=dynamo_client, ops=self._transact_ops)
         )
         return super().commit()
